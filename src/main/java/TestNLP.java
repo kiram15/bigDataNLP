@@ -96,7 +96,6 @@ public final class TestNLP {
 
         //read in the reviews from input json file and put into the Dataset
         Dataset<Row> json_dataset = sc.read().json(args[0]);
-        json_dataset.show();
         
         //put the asin and user given star ratings into JavaRDD
         JavaPairRDD<String, Double> asin_overall = json_dataset.javaRDD().mapToPair( row -> 
@@ -109,22 +108,29 @@ public final class TestNLP {
         //returns an RDD with <asin, nlp calculated rating>
         JavaPairRDD<String, Double> nlpRatings = asin_review.mapValues( review -> nlp(review) );
         
-        //TODO: calculate averages for each of the asin for the overall
+        //Calculate averages for each of the asin for the overall ratings (from JSON)
         //count each values per key
         JavaPairRDD<String, Tuple2<Double, Integer>> valueCount = asin_overall.mapValues(value -> new Tuple2<>(value,1));
         //add values by reduceByKey
         JavaPairRDD<String, Tuple2<Double, Integer>> reducedCount = valueCount.reduceByKey((tuple1,tuple2) ->  new Tuple2<>(tuple1._1 + tuple2._1, tuple1._2 + tuple2._2));
         //calculate average
-        JavaPairRDD<String, Double> averagePair = reducedCount.mapToPair(getAverageByKey);
-
-        averagePair.saveAsTextFile(args[1]);
+        JavaPairRDD<String, Double> overallAveragePair = reducedCount.mapToPair(getAverageByKey);
 
         //TODO: calculate averages for each of the asin for nlpRatings
+        //Calculate averages for each of the asin for the overall ratings (from JSON)
+        //count each values per key
+        JavaPairRDD<String, Tuple2<Double, Integer>> valueCount2 = nlpRatings.mapValues(value -> new Tuple2<>(value,1));
+        //add values by reduceByKey
+        JavaPairRDD<String, Tuple2<Double, Integer>> reducedCount2 = valueCount2.reduceByKey((tuple1,tuple2) ->  new Tuple2<>(tuple1._1 + tuple2._1, tuple1._2 + tuple2._2));
+        //calculate average
+        JavaPairRDD<String, Double> nlpRatingsAveragePair = reducedCount2.mapToPair(getAverageByKey);
 
         
         //TODO: join together the two averages (one using overall and one using nlpRankings) by product ID
+        JavaPairRDD<String, Tuple2<Double, Double>> joinedAverages = overallAveragePair.join(nlpRatingsAveragePair);
+        
         //output file (asin, [avergae overallRating, avergae nlpRanking])
-    
+        joinedAverages.saveAsTextFile(args[1]);
 
         sc.stop();
 
