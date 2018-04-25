@@ -76,7 +76,7 @@ public final class TestNLP {
 
         rating = sum / (sentence_sentiment_scores.size());
 
-	return rating;
+        return rating;
     }
 
     public static void main(String[] args) throws Exception {
@@ -90,19 +90,28 @@ public final class TestNLP {
         //SparkConf conf = new SparkConf().setMaster("spark://jackson:30280").setAppName("IdealPageRank");
         //JavaSparkContext sc = new JavaSparkContext(conf);
 
+        //read in the reviews from input json file and put into the Dataset
         Dataset<Row> json_dataset = sc.read().json(args[0]);
+        json_dataset.show();
         
-        //need to grab the reviews
-        JavaPairRDD<Double, String> overall_review = json_dataset.javaRDD().mapToPair( row -> 
-            new Tuple2<>(row.getDouble(2), row.getString(3)));
-	
-        
-        JavaPairRDD<Double, Double> ratings = overall_review.mapValues( review -> nlp(review) );
-        
-        ratings.saveAsTextFile(args[1]);
+        //put the asin and user given star ratings into JavaRDD
+        JavaPairRDD<String, Double> asin_overall = json_dataset.javaRDD().mapToPair( row -> 
+            new Tuple2<>(row.getString(0), row.getDouble(2)));
+            
+        //put the user give and user written review into JavaRDD
+        JavaPairRDD<String, String> asin_review = json_dataset.javaRDD().mapToPair( row -> 
+            new Tuple2<>(row.getString(0), row.getString(3)));
 
-        //need to pass each review to the nlp function to each of the reviews
-	        
+        //returns an RDD with <asin, nlp calculated rating>
+        JavaPairRDD<String, Double> nlpRatings = asin_review.mapValues( review -> nlp(review) );
+        
+
+        
+        
+        
+        //TODO: join together the two averages (one using overall and one using nlpRankings) by product ID
+        //output file (asin, [avergae overallRating, avergae nlpRanking])
+    
 
         sc.stop();
 
