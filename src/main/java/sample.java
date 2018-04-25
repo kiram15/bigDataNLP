@@ -11,7 +11,7 @@ import edu.stanford.nlp.trees.TreeCoreAnnotations;
 public class sample
 {
     public static String text = "Joe Smith was born in California.In 2017, he went to Paris, France in the summer.His flight left at 3:00pm on July 10th, 2017." +
-            "hei is very bad";
+            "max is a slut";
 
 
     /** Usage: java -cp "*" StanfordCoreNlpDemo [inputFile [outputTextFile [outputXmlFile]]] */
@@ -23,9 +23,9 @@ public class sample
 
         Annotation document = new Annotation(text);
         pipeline.annotate(document);
-        System.out.println("hello");
+        //System.out.println("hello");
 
-        pipeline.prettyPrint(document,System.out);
+        //pipeline.prettyPrint(document,System.out);
         List<CoreMap> sentences = document.get(CoreAnnotations.SentencesAnnotation.class);
         for (CoreMap sentence : sentences)
         {
