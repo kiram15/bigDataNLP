@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16410876-8f33-4b1b-8fbb-63a5223a9464" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/bigDataNLP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bigDataNLP.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__edu_stanford_nlp_stanford_corenlp_3_8_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePlan" beforeDir="false" afterPath="$PROJECT_DIR$/GamePlan" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TestNLP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TestNLP.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TestNLP.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TestNLP.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,14 +16,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="sample.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sample.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/sample.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+            <state relative-caret-position="690">
+              <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1286#1295#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestNLP.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/TestNLP.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="389">
+              <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GamePlan" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GamePlan">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="101" selection-start-line="7" selection-start-column="101" selection-end-line="7" selection-end-column="101" />
             </state>
           </provider>
         </entry>
@@ -35,7 +54,7 @@
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
-              <caret line="38" column="26" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
+              <caret line="39" column="21" lean-forward="true" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -55,9 +74,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/TestNLP.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/sample.java" />
+        <option value="$PROJECT_DIR$/GamePlan" />
+        <option value="$PROJECT_DIR$/src/main/java/TestNLP.java" />
       </list>
     </option>
   </component>
@@ -222,12 +242,12 @@
       <option name="presentableId" value="Default" />
       <updated>1524610287340</updated>
       <workItem from="1524610292298" duration="91000" />
-      <workItem from="1524610397364" duration="3084000" />
+      <workItem from="1524610397364" duration="4654000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3175000" />
+    <option name="totallyTimeSpent" value="4745000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -243,12 +263,12 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" weight="0.32956383" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3089655" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.21241379" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.43310344" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.15172414" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1453958" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1453958" />
       <window_info anchor="right" id="Bean Validation" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -277,16 +297,7 @@
         <state>
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TestNLP.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1286#1295#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -294,14 +305,40 @@
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
-          <caret line="38" column="26" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
+          <caret line="39" column="21" lean-forward="true" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GamePlan">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="101" selection-start-line="7" selection-start-column="101" selection-end-line="7" selection-end-column="101" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+        <state relative-caret-position="690">
+          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1286#1295#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/TestNLP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
