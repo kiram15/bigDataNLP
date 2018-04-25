@@ -87,7 +87,6 @@ public final class TestNLP {
         //JavaSparkContext sc = new JavaSparkContext(conf);
 
         Dataset<Row> json_dataset = sc.read().json(args[0]);
-        json_dataset.show();
         
         //need to grab the reviews
         JavaPairRDD<Double, String> overall_review = json_dataset.javaRDD().mapToPair( row -> 
@@ -96,7 +95,7 @@ public final class TestNLP {
 	overall_review.saveAsTextFile(args[1]);        
 
         //need to pass each review to the nlp function to each of the reviews
-        
+    
         
         
         sc.stop();
