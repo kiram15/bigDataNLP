@@ -5,7 +5,7 @@
 --> middle only 
 --> 65% first and last 35% Middle 
 --> take the most heavily weighted word only for ever sentence in the review
---> take the most heavily weighted word for the sentence -> weight this 80% and then 
+--> take the most heavily weighted word for the sentence -> weight this 80% and then 20% for the rest
 
 2. MapReduce
 --> do the best one in MapReduce and compare the bandwidth to Apache Spark 
