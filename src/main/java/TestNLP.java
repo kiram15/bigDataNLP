@@ -32,47 +32,49 @@ public final class TestNLP {
             "The music  is at times hard to read because we think the book was published for singing from more than playing from. " +
             "Great purchase though!";
 
-    public static void nlp(String review){
+    public static double nlp(String review){
         Properties props = new Properties();
         props.setProperty("annotators", "tokenize,ssplit,pos,parse,sentiment");
         StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
 
-        Annotation document = new Annotation(text);
+        Annotation document = new Annotation(review);
         pipeline.annotate(document);
 
         ArrayList<Integer> sentence_sentiment_scores = new ArrayList<Integer>();
-        //pipeline.prettyPrint(document,System.out);
         List<CoreMap> sentences = document.get(CoreAnnotations.SentencesAnnotation.class);
 
         for (CoreMap sentence : sentences) {
             String sentiment = sentence.get(SentimentCoreAnnotations.SentimentClass.class);
-            //System.out.println(sentiment);
-            //sentence_sentiment_scores.add(sentiment);
-            //Tree tree = sentence.get(TreeCoreAnnotations.TreeAnnotation.class);
-            //tree.pennPrint(System.out);
 
-            if (sentiment.equals("Strongly Positive")) {
-                sentence_sentiment_scores.add(5);
-            } else if (sentiment.equals("Positive")) {
-                sentence_sentiment_scores.add(4);
-            } else if (sentiment.equals("Neutral")) {
-                sentence_sentiment_scores.add(3);
-            } else if (sentiment.equals("Negative")) {
-                sentence_sentiment_scores.add(2);
-            } else {
-                sentence_sentiment_scores.add(1);
+            switch (sentiment) {
+                case "Strongly Positive":
+                    sentence_sentiment_scores.add(5);
+                    break;
+                case "Positive":
+                    sentence_sentiment_scores.add(4);
+                    break;
+                case "Neutral":
+                    sentence_sentiment_scores.add(3);
+                    break;
+                case "Negative":
+                    sentence_sentiment_scores.add(2);
+                    break;
+                default: // "Strongly Negative":
+                    sentence_sentiment_scores.add(1);
             }
+        }
 
-        }
-        
-        int rating = 0;
-        if (sentence_sentiment_scores.size() > 1) {
-            int minimum = Collections.min(sentence_sentiment_scores);
-            int minIndex = sentence_sentiment_scores.indexOf(minimum);
-            int maximum = Collections.max(sentence_sentiment_scores);
-            int maxIndex = sentence_sentiment_scores.indexOf(maximum);
-            //System.out.println(minimum+"\t"+maximum);
-        }
+        System.out.println("sentence scores: " + sentence_sentiment_scores);
+
+        double rating = 0.0;
+        double sum = 0;
+
+        for (int score : sentence_sentiment_scores)
+            sum += score;
+
+        rating = sum / (sentence_sentiment_scores.size());
+
+	return rating;
     }
 
     public static void main(String[] args) throws Exception {
@@ -92,12 +94,14 @@ public final class TestNLP {
         JavaPairRDD<Double, String> overall_review = json_dataset.javaRDD().mapToPair( row -> 
             new Tuple2<>(row.getDouble(2), row.getString(3)));
 	
-	overall_review.saveAsTextFile(args[1]);        
+        
+        JavaPairRDD<Double, Double> ratings = overall_review.mapValues( review -> nlp(review) );
+        
+        ratings.saveAsTextFile(args[1]);
 
         //need to pass each review to the nlp function to each of the reviews
-    
-        
-        
+	        
+
         sc.stop();
 
     }
