@@ -25,14 +25,18 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import edu.stanford.nlp.trees.TreeCoreAnnotations;
+import org.apache.spark.api.java.function.PairFunction;
 
 
 public final class TestNLP {
 
-    public static String text = "I bought this for my husband who plays the piano. " +
-            "He is having a wonderful time playing these old hymns. " +
-            "The music  is at times hard to read because we think the book was published for singing from more than playing from. " +
-            "Great purchase though!";
+    private static PairFunction<Tuple2<String, Tuple2<Double, Integer>>,String,Double> getAverageByKey = (tuple) -> {
+        Tuple2<Double, Integer> val = tuple._2;
+        double total = val._1;
+        double count = val._2;
+        Tuple2<String, Double> averagePair = new Tuple2<String, Double>(tuple._1, total / count);
+        return averagePair;
+    };
 
     public static double nlp(String review){
         Properties props = new Properties();
@@ -105,9 +109,18 @@ public final class TestNLP {
         //returns an RDD with <asin, nlp calculated rating>
         JavaPairRDD<String, Double> nlpRatings = asin_review.mapValues( review -> nlp(review) );
         
+        //TODO: calculate averages for each of the asin for the overall
+        //count each values per key
+        JavaPairRDD<String, Tuple2<Double, Integer>> valueCount = asin_overall.mapValues(value -> new Tuple2<>(value,1));
+        //add values by reduceByKey
+        JavaPairRDD<String, Tuple2<Double, Integer>> reducedCount = valueCount.reduceByKey((tuple1,tuple2) ->  new Tuple2<>(tuple1._1 + tuple2._1, tuple1._2 + tuple2._2));
+        //calculate average
+        JavaPairRDD<String, Double> averagePair = reducedCount.mapToPair(getAverageByKey);
 
-        
-        
+        averagePair.saveAsTextFile(args[1]);
+
+        //TODO: calculate averages for each of the asin for nlpRatings
+
         
         //TODO: join together the two averages (one using overall and one using nlpRankings) by product ID
         //output file (asin, [avergae overallRating, avergae nlpRanking])
