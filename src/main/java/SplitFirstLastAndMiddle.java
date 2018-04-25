@@ -7,7 +7,7 @@ import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
 import edu.stanford.nlp.util.*;
 
 
-public class NoPriority {
+public class SplitFirstLastAndMiddle {
 
     public static String text = "I bought this for my husband who plays the piano. " +
             "He is having a wonderful time playing these old hymns. " +
@@ -55,7 +55,18 @@ public class NoPriority {
             sum += score;
 
         rating = sum / (sentence_sentiment_scores.size());
+        int first = sentence_sentiment_scores.get(0);
+        int last = sentence_sentiment_scores.get(sentence_sentiment_scores.size() - 1);
+        double middleSum = 0.0;
 
-        System.out.println("rating is: " + (rating));
+        for (int score = 1; score < sentence_sentiment_scores.size() - 1; score++)
+            middleSum += sentence_sentiment_scores.get(score);
+
+        System.out.println((first + last) * 0.65);
+        System.out.println(middleSum * 0.35);
+
+        rating = ((0.65 * (first + last)) + (0.35 * middleSum)) / sentence_sentiment_scores.size();
+
+        System.out.println("rating is: " + (Math.round(rating * 100.0) / 100.0));
     }
 }

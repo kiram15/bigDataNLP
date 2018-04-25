@@ -7,7 +7,7 @@ import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
 import edu.stanford.nlp.util.*;
 
 
-public class NoPriority {
+public class MaxSentenceSplit {
 
     public static String text = "I bought this for my husband who plays the piano. " +
             "He is having a wonderful time playing these old hymns. " +
@@ -48,14 +48,19 @@ public class NoPriority {
 
         System.out.println("sentence scores: " + sentence_sentiment_scores);
 
-        double rating = 0.0;
-        double sum = 0.0;
 
-        for (int score : sentence_sentiment_scores)
-            sum += score;
+        int maxIndex = sentence_sentiment_scores.indexOf(Collections.max(sentence_sentiment_scores));
+        double max = sentence_sentiment_scores.get(maxIndex);
 
-        rating = sum / (sentence_sentiment_scores.size());
+        double sum = 0;
 
-        System.out.println("rating is: " + (rating));
+        for (int score = 0; score < sentence_sentiment_scores.size() - 1; score++)
+            if (score != maxIndex)
+                sum += sentence_sentiment_scores.get(score);
+
+        double rating = (0.8 * max + 0.2 * sum / sentence_sentiment_scores.size());
+
+        System.out.println("rating is: " + (Math.round(rating * 100.0) / 100.0));
     }
 }
+
