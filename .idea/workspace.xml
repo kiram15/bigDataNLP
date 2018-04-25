@@ -3,10 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="16410876-8f33-4b1b-8fbb-63a5223a9464" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TestNLP.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NoPriority.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TestNLP.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePlan" beforeDir="false" afterPath="$PROJECT_DIR$/GamePlan" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FirstSentenceAndLastSentence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FirstSentenceAndLastSentence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MiddleOnly.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MiddleOnly.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/NoPriority.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NoPriority.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MiddleOnly.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MiddleOnly.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,53 +19,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="NoPriority.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/NoPriority.java">
+      <file leaf-file-name="MaxSentenceSplit.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/MaxSentenceSplit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+            <state relative-caret-position="332">
+              <caret line="59" selection-start-line="59" selection-end-line="59" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1286#1295#0" expanded="true" />
+                <element signature="e#972#981#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FirstSentenceOnly.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/FirstSentenceOnly.java">
+      <file leaf-file-name="MaxSentence.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/MaxSentence.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="37" column="31" lean-forward="true" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
+            <state relative-caret-position="215">
+              <caret line="42" column="26" lean-forward="true" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#971#980#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MiddleOnly.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/MiddleOnly.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="53" column="72" selection-start-line="53" selection-start-column="72" selection-end-line="53" selection-end-column="72" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#971#980#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FirstSentenceAndLastSentence.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/FirstSentenceAndLastSentence.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="52" column="132" selection-start-line="52" selection-start-column="132" selection-end-line="52" selection-end-column="132" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#978#987#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -73,8 +47,8 @@
       <file leaf-file-name="GamePlan" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GamePlan">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="23" lean-forward="true" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+            <state relative-caret-position="120">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -95,13 +69,16 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/TestNLP.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample.java" />
-        <option value="$PROJECT_DIR$/GamePlan" />
         <option value="$PROJECT_DIR$/src/main/java/FirstSentenceOnly.java" />
-        <option value="$PROJECT_DIR$/src/main/java/FirstSentenceAndLastSentence.java" />
         <option value="$PROJECT_DIR$/src/main/java/NoPriority.java" />
         <option value="$PROJECT_DIR$/src/main/java/MiddleOnly.java" />
+        <option value="$PROJECT_DIR$/src/main/java/FirstSentenceAndLastSentence.java" />
+        <option value="$PROJECT_DIR$/src/main/java/TestNLP.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SplitFirstLastAndMiddle.java" />
+        <option value="$PROJECT_DIR$/GamePlan" />
+        <option value="$PROJECT_DIR$/src/main/java/MaxSentence.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MaxSentenceSplit.java" />
       </list>
     </option>
   </component>
@@ -207,7 +184,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MiddleOnly">
+  <component name="RunManager" selected="Application.MaxSentenceSplit">
     <configuration name="FirstSentenceAndLastSentence" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="FirstSentenceAndLastSentence" />
       <module name="bigDataNLP" />
@@ -218,6 +195,16 @@
       <module name="bigDataNLP" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
     </configuration>
+    <configuration name="MaxSentence" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="MaxSentence" />
+      <module name="bigDataNLP" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="MaxSentenceSplit" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="MaxSentenceSplit" />
+      <module name="bigDataNLP" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+    </configuration>
     <configuration name="MiddleOnly" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="MiddleOnly" />
       <module name="bigDataNLP" />
@@ -225,6 +212,11 @@
     </configuration>
     <configuration name="NoPriority" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="NoPriority" />
+      <module name="bigDataNLP" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="SplitFirstLastAndMiddle" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="SplitFirstLastAndMiddle" />
       <module name="bigDataNLP" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
     </configuration>
@@ -273,6 +265,9 @@
       <item itemvalue="Application.NoPriority" />
       <item itemvalue="Application.FirstSentenceAndLastSentence" />
       <item itemvalue="Application.MiddleOnly" />
+      <item itemvalue="Application.SplitFirstLastAndMiddle" />
+      <item itemvalue="Application.MaxSentence" />
+      <item itemvalue="Application.MaxSentenceSplit" />
       <item itemvalue="Application.FirstSentenceOnly" />
     </list>
   </component>
@@ -287,12 +282,12 @@
       <option name="presentableId" value="Default" />
       <updated>1524610287340</updated>
       <workItem from="1524610292298" duration="91000" />
-      <workItem from="1524610397364" duration="8649000" />
+      <workItem from="1524610397364" duration="12384000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8740000" />
+    <option name="totallyTimeSpent" value="12475000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -308,12 +303,12 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" weight="0.32956383" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21793103" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24965517" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3089655" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3048276" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17447495" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2180937" />
       <window_info anchor="right" id="Bean Validation" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -342,7 +337,6 @@
         <state>
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1286#1295#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -355,16 +349,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TestNLP.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="1" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/input/sampleInput.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -372,24 +356,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/TestNLP.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
+        <state relative-caret-position="303">
+          <caret line="94" column="4" selection-start-line="94" selection-start-column="4" selection-end-line="94" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GamePlan">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="23" lean-forward="true" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+        <state relative-caret-position="285">
+          <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/FirstSentenceOnly.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
-          <caret line="37" column="31" lean-forward="true" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
+          <caret line="37" column="31" lean-forward="true" selection-end-line="56" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#971#980#0" expanded="true" />
@@ -399,8 +383,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/FirstSentenceAndLastSentence.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="52" column="132" selection-start-line="52" selection-start-column="132" selection-end-line="52" selection-end-column="132" />
+        <state relative-caret-position="345">
+          <caret line="50" column="27" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#978#987#0" expanded="true" />
@@ -408,24 +392,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/NoPriority.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/MiddleOnly.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+        <state relative-caret-position="513">
+          <caret line="56" column="62" lean-forward="true" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1286#1295#0" expanded="true" />
+            <element signature="e#971#980#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MiddleOnly.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/NoPriority.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="53" column="72" selection-start-line="53" selection-start-column="72" selection-end-line="53" selection-end-column="72" />
+        <state relative-caret-position="340">
+          <caret line="43" column="24" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#971#980#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GamePlan">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SplitFirstLastAndMiddle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MaxSentence.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="42" column="26" lean-forward="true" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MaxSentenceSplit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#972#981#0" expanded="true" />
           </folding>
         </state>
       </provider>

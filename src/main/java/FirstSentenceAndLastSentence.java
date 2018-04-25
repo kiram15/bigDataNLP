@@ -48,7 +48,7 @@ public class FirstSentenceAndLastSentence {
 
         System.out.println("sentence scores: " + sentence_sentiment_scores);
 
-        double rating = 0;
+        double rating = 0.0;
         if (sentence_sentiment_scores.size() > 1)
             rating = (sentence_sentiment_scores.get(0) + sentence_sentiment_scores.get(sentence_sentiment_scores.size() - 1)) / 2.0;
 

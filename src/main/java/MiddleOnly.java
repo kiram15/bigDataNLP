@@ -49,10 +49,10 @@ public class MiddleOnly {
         System.out.println("sentence scores: " + sentence_sentiment_scores);
 
         double rating = 0.0;
-        double sum = 0;
+        double sum = 0.0;
 
         for (int score = 1; score < sentence_sentiment_scores.size() - 1; score++)
-            sum += score;
+            sum += sentence_sentiment_scores.get(score);
 
         rating = sum / (sentence_sentiment_scores.size() - 2);
 
