@@ -2,14 +2,15 @@ import java.io.*;
 import java.lang.Object;
 import java.util.*;
 
+import scala.Tuple2;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;
-import scala.Tuple2;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.sql.SparkSession;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
+import org.apache.spark.api.java.function.PairFunction;
 
 import edu.stanford.nlp.ling.*;
 import edu.stanford.nlp.ie.util.*;
@@ -18,14 +19,12 @@ import edu.stanford.nlp.semgraph.*;
 import edu.stanford.nlp.trees.*;
 import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
 import edu.stanford.nlp.util.*;
+import edu.stanford.nlp.trees.TreeCoreAnnotations;
 
 import java.util.ArrayList;
 import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import edu.stanford.nlp.trees.TreeCoreAnnotations;
-import org.apache.spark.api.java.function.PairFunction;
 
 
 public final class Driver {
@@ -38,6 +37,14 @@ public final class Driver {
         return averagePair;
     };
 
+    private static Double sqr(Tuple2<Double, Double> v){
+        return Math.pow(Math.abs(v._1-v._2),2);
+    }
+
+    private static Double mae(Tuple2<Double, Double> v){
+        return Math.abs(v._1-v._2);
+    }
+    
     public static void main(String[] args) throws Exception {
 
         SparkSession sc = SparkSession
@@ -51,11 +58,10 @@ public final class Driver {
 
         //read in the reviews from input json file and put into the Dataset
         Dataset<Row> json_dataset = sc.read().json(args[0]);
-        
+
 	//put the asin and user given star ratings into JavaRDD
-        JavaPairRDD<Double, String> overall_review = json_dataset.javaRDD().mapToPair( row -> 
-            new Tuple2<>(row.getDouble(2), row.getString(3)));
-	
+        JavaPairRDD<Double, String> overall_review = json_dataset.javaRDD().mapToPair( row -> new Tuple2<>(row.getDouble(2), row.getString(3)));
+
 	JavaPairRDD<Double, Double> nlpRatingsCompare;
 
 	//returns an RDD with <overall, nlp calculated rating>
@@ -85,7 +91,7 @@ public final class Driver {
                 nlpRatingsCompare = overall_review.mapValues( review -> Algorithms.noPriority(review) );
         }
         
-	nlpRatingsCompare.saveAsTextFile(args[1] + "overall_output");
+	nlpRatingsCompare.saveAsTextFile(args[1] + "_overall_output");
 
 	//put the asin and user given star ratings into JavaRDD
         JavaPairRDD<String, Double> asin_overall = json_dataset.javaRDD().mapToPair( row -> 
@@ -144,9 +150,20 @@ public final class Driver {
         JavaPairRDD<String, Tuple2<Double, Double>> joinedAverages = overallAveragePair.join(nlpRatingsAveragePair);
         
         //output file (asin, [avergae overallRating, avergae nlpRanking])
-        joinedAverages.saveAsTextFile(args[1] + "average_output");
+        joinedAverages.saveAsTextFile(args[1] + "_average_output");
+        
+        JavaPairRDD<String, Double> RMSE = joinedAverages.mapValues(value -> sqr(value));
+	JavaPairRDD<String, Double> MAE = joinedAverages.mapValues(value -> mae(value));
+        long count = RMSE.count();
+	double RMSESum = RMSE.values().reduce((a,b) -> a+b);
+	double MAESum = MAE.values().reduce((a,b) -> a+b);
 
+	Double RMSEError = Math.sqrt(RMSESum / count);
+	Double MAEError = MAESum / count;
+	
+        RMSE.saveAsTextFile(args[1] + "_RMSE_output_" + RMSEError);
+	MAE.saveAsTextFile(args[1] + "_MAE_output_" + MAEError);
+        
         sc.stop();
-
     }
 }
