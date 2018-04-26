@@ -34,7 +34,7 @@ public final class Driver {
         Tuple2<Double, Integer> val = tuple._2;
         double total = val._1;
         double count = val._2;
-        Tuple2<String, Double> averagePair = new Tuple2<String, Double>(tuple._1, total / count);
+        Tuple2<String, Double> averagePair = new Tuple2<String, Double>(tuple._1, Math.round((total / count)*100.0)/100.0);
         return averagePair;
     };
 
@@ -52,7 +52,42 @@ public final class Driver {
         //read in the reviews from input json file and put into the Dataset
         Dataset<Row> json_dataset = sc.read().json(args[0]);
         
-        //put the asin and user given star ratings into JavaRDD
+	//put the asin and user given star ratings into JavaRDD
+        JavaPairRDD<Double, String> overall_review = json_dataset.javaRDD().mapToPair( row -> 
+            new Tuple2<>(row.getDouble(2), row.getString(3)));
+	
+	JavaPairRDD<Double, Double> nlpRatingsCompare;
+
+	//returns an RDD with <overall, nlp calculated rating>
+        switch (args[1]) {
+            case "np": 
+                nlpRatingsCompare = overall_review.mapValues( review -> Algorithms.noPriority(review) );
+                break;
+            case "fso": 
+                nlpRatingsCompare = overall_review.mapValues( review -> Algorithms.firstSentenceOnly(review) );
+                break;
+            case "fals": 
+                nlpRatingsCompare = overall_review.mapValues( review -> Algorithms.firstAndLastSentence(review) );
+                break;
+            case "mo": 
+                nlpRatingsCompare = overall_review.mapValues( review -> Algorithms.middleOnly(review) );
+                break;
+            case "sflam": 
+                nlpRatingsCompare = overall_review.mapValues( review -> Algorithms.splitFirstLastAndMiddle(review) );
+                break;
+            case "ms": 
+                nlpRatingsCompare = overall_review.mapValues( review -> Algorithms.maxSentence(review) );
+                break;
+            case "mss": 
+                nlpRatingsCompare = overall_review.mapValues( review -> Algorithms.maxSentenceSplit(review) );
+                break;
+            default: 
+                nlpRatingsCompare = overall_review.mapValues( review -> Algorithms.noPriority(review) );
+        }
+        
+	nlpRatingsCompare.saveAsTextFile(args[1] + "overall_output");
+
+	//put the asin and user given star ratings into JavaRDD
         JavaPairRDD<String, Double> asin_overall = json_dataset.javaRDD().mapToPair( row -> 
             new Tuple2<>(row.getString(0), row.getDouble(2)));
             
@@ -60,7 +95,7 @@ public final class Driver {
         JavaPairRDD<String, String> asin_review = json_dataset.javaRDD().mapToPair( row -> 
             new Tuple2<>(row.getString(0), row.getString(3)));
 
-        JavaPairRDD<String, Double> nlpRatings = JavaPairRDD.fromJavaRDD(sc.sparkContext().emptyRDD());
+        JavaPairRDD<String, Double> nlpRatings;
         
         //returns an RDD with <asin, nlp calculated rating>
         switch (args[1]) {
@@ -87,8 +122,8 @@ public final class Driver {
                 break;
             default: 
                 nlpRatings = asin_review.mapValues( review -> Algorithms.noPriority(review) );
-        }
-        
+        }       
+
         //Calculate averages for each of the asin for the overall ratings (from JSON)
         //count each values per key
         JavaPairRDD<String, Tuple2<Double, Integer>> valueCount = asin_overall.mapValues(value -> new Tuple2<>(value,1));
@@ -105,11 +140,11 @@ public final class Driver {
         //calculate average
         JavaPairRDD<String, Double> nlpRatingsAveragePair = reducedCount2.mapToPair(getAverageByKey);
 
-        //TODO: join together the two averages (one using overall and one using nlpRankings) by product ID
+        //join together the two averages (one using overall and one using nlpRankings) by product ID
         JavaPairRDD<String, Tuple2<Double, Double>> joinedAverages = overallAveragePair.join(nlpRatingsAveragePair);
         
         //output file (asin, [avergae overallRating, avergae nlpRanking])
-        joinedAverages.saveAsTextFile(args[1] + "_output");
+        joinedAverages.saveAsTextFile(args[1] + "average_output");
 
         sc.stop();
 
